@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>WebRes Sprint 3</title>
+  <!--Firebase-->
+
+<!--CSS Sheets-->
+<link rel="stylesheet" href="css/indexStyleSheet.css">
+
+
+</head>
+<body>
+
+
+
+
+  <!-- Navbar goes here -->
+
+<!-- Page Layout here -->
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">Profile</a>
+  <a href="#">Lecture History</a>
+  <a href="#">Notes</a>
+  <a href="#">Sign Out</a>
+</div>
+
+
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main">
+
+  <!-- Use any element to open the sidenav -->
+  <div class="topNav">
+    <div class="openNav" onclick="openNav()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <h3>Title of web applicaiton</h3>
+  </div>
+
+
+  <div class="slides">
+      <h1 id="test">Hello</h1>
+      <textarea id="mainText"placeholder="enter text"></textarea>
+      <button id="submitButton" onclick="submitData()">Enter</button>
+  </div>
+
+  <div class="notes">
+
+  </div>
+  <div class="chat">
+    <h1 id="Firebasetest"></h1>
+  </div>
+</div>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB8HwUxXpPbR6GBnMZXWdIvGmldXHdrj2c",
+    authDomain: "sprint3-4ed4d.firebaseapp.com",
+    databaseURL: "https://sprint3-4ed4d.firebaseio.com",
+    storageBucket: "sprint3-4ed4d.appspot.com",
+    messagingSenderId: "716959490806"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src="js/index.js"></script>
+
+</body>
+
+</html>
