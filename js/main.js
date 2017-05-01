@@ -8,26 +8,13 @@ $(document).ready(
 
     root.on("child_added", snap => {
 
+
       //append() puts all into a line not a list
-      $("#message").append("<p>"+snap.val()+"</p>");
+      $("#chatLayout").append("<div id='messageContent'><span class='timestamp'>"+snap.val().Time+"</span><p class='messageAuthor'>"+snap.val().User+"</p><p class='content'>"+snap.val().Message+"</p>");
 
     });
   }
 )
-
-
-
-
-
-
-var test = document.getElementById('test');
-var firebaseRef = firebase.database().ref().child("text");
-
-firebaseRef.on('value', function(datasnapshot) {
-  test.innerHTML = datasnapshot.val();
-});
-
-
 
 /*
 Sending message to the database
@@ -39,10 +26,32 @@ $("#buttonSend").click(
     var ref = firebase.database().ref().child("Chat").push();
 
     //Getting the feilds
-    //need to get the user id aswell
+    //Message Content
     var text = $("#messageText").val();
+    //Message timestamp
+    var time = new Date();
+    //Time format for message
+    var formatTime = time.getHours() + ":" + time.getMinutes();
 
-    ref.set(text);
+    //User object
+    var user = firebase.auth().currentUser;
+    /*
+    CHecks if user is not null
+    if there is user then it sends the message
+    */
+
+    if(user != null) {
+      //Message object
+      //ref is the databse reference
+      //user.uid is the users unqiue id to firebase
+      ref.set({
+        Message : text,
+        User : user.uid,
+        Time : formatTime
+      });
+    }
+    //empty text field for the next message
+    $("#messageText").val("");
 
   }
 )

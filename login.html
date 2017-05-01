@@ -83,19 +83,26 @@
       <div class="mdl-grid">
 
         <!--Notes Content-->
-        <div id="notes" class="mdl-cell mdl-cell--6-col">6
+        <div id="notes" class="mdl-cell mdl-cell--6-col">
 
-        <p id="test"></p>
+          <!--TextArea for sending to docs -->
+          <!-- Floating Multiline Textfield -->
+        <form action="#">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <textarea class="mdl-textfield__input" type="text" id="notesArea" ></textarea>
+            <label class="mdl-textfield__label" for="notesArea">Write Notes</label>
+          </div>
+        </form>
 
 
       </div>
 
 
       <!--Chat content-->
-      <div id="chat" class="mdl-cell mdl-cell--6-col">6
+      <div id="chat" class="mdl-cell mdl-cell--6-col">
         <!--Chat messages-->
         <div id="chatLayout">
-          <p id="message"></p>
+
         </div>
 
 

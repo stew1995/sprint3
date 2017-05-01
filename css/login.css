@@ -29,24 +29,3 @@
 #loginProgress {
   display:none;
 }
-
-
-
-
-/**Layout of website**/
-.slides {
-  background: red;
-  width: 100%;
-  height: 500px;
-  margin-top: 15px;
-}
-
-#notes {
-  background: yellow;
-  height: 400px;
-}
-
-#chat {
-  background: green;
-  height: 400px;
-}
