@@ -12,7 +12,7 @@
 }
 
 /**Login Containor**/
-.loginContainer {
+.login-cont {
   background: #ffffff;
   position: fixed;
   top: 0;
@@ -25,11 +25,15 @@
   justify-content: center;
   align-items: center;
 }
-
+/**Progress circle for loading**/
 #loginProgress {
   display:none;
 }
 
+
+
+
+/**Layout of website**/
 .slides {
   background: red;
   width: 100%;

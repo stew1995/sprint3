@@ -1,22 +1,23 @@
 // User is signed in.
-$("#loginContainer").hide();
-$("#spin").hide();
-  firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function(user) {
 
     if (user) {
 
-
-      var dialog = document.querySelector('.login-cont');
+      $(".login-cont").hide();
+      //To show the dialog box using MDL
+      var dialog = document.querySelector('#loginDialog');
 
       if (! dialog.showModal) {
         dialogPolyfill.registerDialog(dialog);
       }
       dialog.close();
 
+
     } else {
       // No user is signed in.
+      $(".login-cont").show();
 
-      var dialog = document.querySelector('.login-cont');
+      var dialog = document.querySelector('#loginDialog');
 
       if (! dialog.showModal) {
         dialogPolyfill.registerDialog(dialog);
@@ -82,3 +83,22 @@ var firebaseRef = firebase.database().ref().child("test");
 firebaseRef.on('value', function(datasnapshot) {
   test.innerHTML = datasnapshot.val();
 });
+
+/*Logout user*/
+$("#logoutButton").click(
+  function() {
+    //Logout user
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      //Authentication at the top should handle what happens here
+
+
+
+    }).catch(function(error) {
+      // An error happened.
+
+
+
+    });
+  }
+)

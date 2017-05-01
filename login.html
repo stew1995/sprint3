@@ -12,12 +12,12 @@
   <script src="dialog-polyfill.js"></script>
 </head>
 <body>
-
+<!--Login Dialog-->
   <dialog id="loginDialog" class="mdl-dialog">
       <h4 class="mdl-dialog__title">Sign In</h4>
       <div class="mdl-dialog__content">
         <p>
-          Some Text
+          Sign in using university email
         </p>
         <form action="#">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -28,7 +28,7 @@
       </form>
       <form action="#">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input class="mdl-textfield__input" type="text" id="loginPassword">
+          <input class="mdl-textfield__input" type="password" id="loginPassword">
           <label class="mdl-textfield__label" for="sample3">Password</label>
         </div>
       </form>
@@ -57,7 +57,7 @@
       <span class="page-title-span">Home</span>
       <div class="mdl-layout-spacer"></div>
       <!-- Accent-colored raised button -->
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+        <button id="logoutButton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
           Sign Out<i class="button-right-icon material-icons">account_circle</i>
         </button>
 
@@ -76,7 +76,7 @@
     <div class="page-content">
 
       <!--Main Content-->
-      <div class="slides">
+      <div class="slides">12
       </div>
 
       <div class="mdl-grid">
