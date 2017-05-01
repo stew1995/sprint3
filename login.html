@@ -9,6 +9,7 @@
   <!-- Style sheets-->
 
   <link rel="stylesheet" href="css/login.css" />
+  <link rel="stylesheet" href="css/main.css" />
   <script src="dialog-polyfill.js"></script>
 </head>
 <body>
@@ -80,12 +81,39 @@
       </div>
 
       <div class="mdl-grid">
+
+        <!--Notes Content-->
         <div id="notes" class="mdl-cell mdl-cell--6-col">6
 
-        <p id="test">
+        <p id="test"></p>
 
-        </p></div>
-        <div id="chat" class="mdl-cell mdl-cell--6-col">6</div>
+
+      </div>
+
+
+      <!--Chat content-->
+      <div id="chat" class="mdl-cell mdl-cell--6-col">6
+        <!--Chat messages-->
+        <div id="chatLayout">
+          <p id="message"></p>
+        </div>
+
+
+      <form id="messageTextForm" action="#">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" id="messageText">
+          <label class="mdl-textfield__label" for="messageText" id="messageLabel">Type Message....</label>
+          <!-- Colored mini FAB button -->
+        </div>
+      </form>
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect"
+      id="buttonSend">
+        <i class="material-icons">keyboard_arrow_up</i>
+      </button>
+
+      </div>
+
+
 
       </div>
 
@@ -114,6 +142,7 @@
 
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script src="js/login.js"></script>
+  <script src="js/main.js"></script>
 
 
 

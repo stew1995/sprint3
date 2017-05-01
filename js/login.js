@@ -77,13 +77,6 @@ $("#registerButton").click(
   }
 );
 
-var test = document.getElementById('test');
-var firebaseRef = firebase.database().ref().child("test");
-
-firebaseRef.on('value', function(datasnapshot) {
-  test.innerHTML = datasnapshot.val();
-});
-
 /*Logout user*/
 $("#logoutButton").click(
   function() {
