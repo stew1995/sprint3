@@ -55,3 +55,18 @@ $("#buttonSend").click(
 
   }
 )
+
+$(document).ready(
+  function() {
+    $("#open").click(
+      function() {
+        $.ajax({
+          url : "helloworld.txt",
+          dataType: "text",
+          success: function(data) {
+            $("#notesArea").text(data)
+          }
+        })
+      })
+  }
+)

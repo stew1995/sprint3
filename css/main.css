@@ -1,3 +1,7 @@
+html {
+  background: #6b3377;
+}
+
 /**Layout of website**/
 .slides {
   background: red;
@@ -8,6 +12,7 @@
 #notes {
   background: yellow;
   height: 400px;
+  position: relative;
 }
 
 #chat {
@@ -25,7 +30,7 @@
 #messageTextForm {
   position: absolute;
   bottom: 0;
-  width: 750px;
+  width: 100%;
   padding-left: 10px;
   padding-right: 50px;
   background: white;
@@ -33,11 +38,11 @@
 }
 
 #messageText {
-  width: 750px;
+  width: 600px;
 }
 
 #messageLabel {
-  width: 750px;
+  width: 600px;
 }
 
 #buttonSend {
@@ -70,4 +75,22 @@
 
 .content {
   margin-top: -20px;
+}
+
+/*Notes Area*/
+#notesArea {
+  width:610px;
+  height: 350px;
+  background: white;
+}
+
+#notesLabel {
+  width:600px;
+}
+
+#notesForm {
+  position: absolute;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 50px;
 }
