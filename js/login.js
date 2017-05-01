@@ -1,3 +1,5 @@
+//
+
 // User is signed in.
 firebase.auth().onAuthStateChanged(function(user) {
 
@@ -26,7 +28,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
   });
 
-//Onlick listerner on button
+//Onlick listener on button
+
 $("#loginButton").click(
   function() {
     //Getting a html element
