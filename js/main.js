@@ -1,3 +1,4 @@
+
 /*
  When the document has loaded the messages in the database load
  each time a message is added, the js adds a new paragraph message
@@ -7,7 +8,6 @@ $(document).ready(
     var root = firebase.database().ref().child("Chat");
 
     root.on("child_added", snap => {
-
 
       //append() puts all into a line not a list
       $("#chatLayout").append("<div id='messageContent'><span class='timestamp'>"+snap.val().Time+"</span><p class='messageAuthor'>"+snap.val().User+"</p><p class='content'>"+snap.val().Message+"</p>");
@@ -50,6 +50,8 @@ $("#buttonSend").click(
         Time : formatTime
       });
     }
+
+
     //empty text field for the next message
     $("#messageText").val("");
 
