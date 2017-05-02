@@ -24,7 +24,8 @@ const googleAuth    = require('google-auth-library');
 
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/drive-nodejs-quickstart.json
-const SCOPES        = ['https://www.googleapis.com/auth/drive.metadata.readonly'];
+// https://www.googleapis.com/auth/drive.metadata.readonly
+const SCOPES        = ['https://www.googleapis.com/auth/drive.file'];
 const TOKEN_DIR     = (process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE) + '/.credentials/';
 const TOKEN_PATH    = TOKEN_DIR + 'drive-nodejs-quickstart.json';
@@ -37,11 +38,7 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
         return;
     }
     // Authorize a client with the loaded credentials, then call the Drive API.
-<<<<<<< HEAD
-    authorize(JSON.parse(content), listFiles);
-=======
     authorize(JSON.parse(content), createFile);
->>>>>>> 0c6ca6f0cab74c5690390ce94138c1e5c0dbcdc8
 });
 
 
@@ -119,20 +116,6 @@ function storeToken(token) {
     console.log('Token stored to ' + TOKEN_PATH);
 }
 
-<<<<<<< HEAD
-var drive = google.drive({ version: 'v3', auth: oauth2Client });
-
-drive.files.create({
-    resource: {
-        name: 'Test',
-        mimeType: 'text/plain'
-    },
-    media: {
-        mimeType: 'text/plain',
-        body: 'Hello World'
-    }
-}, callback);
-=======
 
 // Function to create a binary text file with the contents "hello world"
 
@@ -153,7 +136,7 @@ function createFile(auth) {
     })
 }
 
->>>>>>> 0c6ca6f0cab74c5690390ce94138c1e5c0dbcdc8
+
 
 
 /**
@@ -161,7 +144,7 @@ function createFile(auth) {
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
-<<<<<<< HEAD
+
 function listFiles(auth) {
     var service = google.drive('v3');
     service.files.list({
@@ -185,7 +168,7 @@ function listFiles(auth) {
         }
     });
 }
-=======
+
 //function listFiles(auth) {
 //    var service = google.drive('v3');
 //    service.files.list({
@@ -209,4 +192,4 @@ function listFiles(auth) {
 //        }
 //    })
 //}
->>>>>>> 0c6ca6f0cab74c5690390ce94138c1e5c0dbcdc8
+
