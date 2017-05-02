@@ -7,7 +7,7 @@
 // - implementation of:
 // -
 //----------------------------------------------------------------
-// Firebase Authentication - Generates Random UID
+// FGenerates Random UID
 //----------------------------------------------------------------
 // REFERENCED FROM:
 
