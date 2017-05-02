@@ -17,17 +17,18 @@
 // TODO: ES6 formatting for block-scoped variables
 // TODO: comment out / remove / disable 'listFiles' function, and write a CREATE new google doc function
 
-var fs = require('fs');
-var readline = require('readline');
-var google = require('googleapis');
-var googleAuth = require('google-auth-library');
+const fs            = require('fs');
+const readline      = require('readline');
+const google        = require('googleapis');
+const googleAuth    = require('google-auth-library');
 
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/drive-nodejs-quickstart.json
-var SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly'];
-var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
+const SCOPES        = ['https://www.googleapis.com/auth/drive.metadata.readonly'];
+const TOKEN_DIR     = (process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE) + '/.credentials/';
-var TOKEN_PATH = TOKEN_DIR + 'drive-nodejs-quickstart.json';
+const TOKEN_PATH    = TOKEN_DIR + 'drive-nodejs-quickstart.json';
+
 
 // Load client secrets from a local file.
 fs.readFile('client_secret.json', function processClientSecrets(err, content) {
@@ -35,10 +36,10 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
         console.log('Error loading client secret file: ' + err);
         return;
     }
-    // Authorize a client with the loaded credentials, then call the
-    // Drive API.
+    // Authorize a client with the loaded credentials, then call the Drive API.
     authorize(JSON.parse(content), listFiles);
 });
+
 
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
@@ -49,9 +50,9 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
  */
 function authorize(credentials, callback) {
     var clientSecret = credentials.installed.client_secret;
-    var clientId = credentials.installed.client_id;
-    var redirectUrl = credentials.installed.redirect_uris[0];
-    var auth = new googleAuth();
+    var clientId     = credentials.installed.client_id;
+    var redirectUrl  = credentials.installed.redirect_uris[0];
+    var auth         = new googleAuth();
     var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
 
     // Check if we have previously stored a token.
@@ -114,6 +115,20 @@ function storeToken(token) {
     console.log('Token stored to ' + TOKEN_PATH);
 }
 
+var drive = google.drive({ version: 'v3', auth: oauth2Client });
+
+drive.files.create({
+    resource: {
+        name: 'Test',
+        mimeType: 'text/plain'
+    },
+    media: {
+        mimeType: 'text/plain',
+        body: 'Hello World'
+    }
+}, callback);
+
+
 /**
  * Lists the names and IDs of up to 10 files.
  *
@@ -141,3 +156,4 @@ function listFiles(auth) {
             }
         }
     });
+}
