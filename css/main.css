@@ -66,15 +66,21 @@ html {
   font-size: 10px;
   float: right;
   margin-right: 10px;
+  background: #2196f3
 }
 
 .messageAuthor {
   width: 100%;
   border-bottom: 1px grey solid;
+  background: #2196f3;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .content {
-  margin-top: -20px;
+  margin-top: -10px;
+  padding-left: 2.5px;
+  padding-right: 2.5px;
 }
 
 /*Notes Area*/

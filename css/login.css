@@ -29,3 +29,22 @@
 #loginProgress {
   display:none;
 }
+
+#UserIDCard {
+  font-size: 15px;
+}
+
+#titleBackground {
+  background: #2196f3
+}
+
+#chatheight {
+  
+  padding: 0px;
+  margin: 0px;
+}
+.size {
+  padding: 0px;
+  height: 50px;
+  margin: 0;
+}
