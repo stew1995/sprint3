@@ -1,3 +1,16 @@
+//----------------------------------------------------------------
+// file name: js/login.js
+//----------------------------------------------------------------
+// Contributed to by 750430 & 703451
+//----------------------------------------------------------------
+// Component version: v0.1
+// - implementation of:
+// -
+//----------------------------------------------------------------
+// Firebase Authentication - Generates Random UID
+//----------------------------------------------------------------
+// REFERENCED FROM:
+
 // User is signed in.
 firebase.auth().onAuthStateChanged(function(user) {
 
@@ -26,7 +39,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
   });
 
-//Onlick listerner on button
+//Onlick listener on button
+
 $("#loginButton").click(
   function() {
     //Getting a html element

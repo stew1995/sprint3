@@ -1,0 +1,23 @@
+{
+  "name": "webres_sprint_3_dex",
+  "version": "1.0.0",
+  "description": "a web-based app to allow students to collaboratively take lecture notes, user-driven content is automatically stored in a google doc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stew1995/sprint3.git"
+  },
+  "author": "750430_&_703451",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stew1995/sprint3/issues"
+  },
+  "homepage": "https://github.com/stew1995/sprint3#readme",
+  "dependencies": {
+    "google-auth-library": "^0.10.0",
+    "googleapis": "^19.0.0"
+  }
+}
