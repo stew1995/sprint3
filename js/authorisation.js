@@ -37,7 +37,7 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
         return;
     }
     // Authorize a client with the loaded credentials, then call the Drive API.
-    authorize(JSON.parse(content), listFiles);
+    authorize(JSON.parse(content), createFile);
 });
 
 
@@ -115,18 +115,26 @@ function storeToken(token) {
     console.log('Token stored to ' + TOKEN_PATH);
 }
 
-var drive = google.drive({ version: 'v3', auth: oauth2Client });
 
-drive.files.create({
-    resource: {
-        name: 'Test',
-        mimeType: 'text/plain'
-    },
-    media: {
-        mimeType: 'text/plain',
-        body: 'Hello World'
-    }
-}, callback);
+// Function to create a binary text file with the contents "hello world"
+
+// Failing with 403 permissions error - suspect oauth isn't being passed in properly
+
+function createFile(auth) {
+    //var drive = google.drive('v3');
+    var drive = google.drive({ version: 'v3', auth: auth });
+    drive.files.create({
+        resource: {
+            name: 'Test',
+            mimeType: 'text/plain'
+        },
+        media: {
+            mimeType: 'text/plain',
+            body: 'Hello World'
+        }
+    })
+}
+
 
 
 /**
@@ -134,26 +142,26 @@ drive.files.create({
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
-function listFiles(auth) {
-    var service = google.drive('v3');
-    service.files.list({
-        auth: auth,
-        pageSize: 10,
-        fields: "nextPageToken, files(id, name)"
-    }, function(err, response) {
-        if (err) {
-            console.log('The API returned an error: ' + err);
-            return;
-        }
-        var files = response.files;
-        if (files.length == 0) {
-            console.log('No files found.');
-        } else {
-            console.log('Files:');
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-                console.log('%s (%s)', file.name, file.id);
-            }
-        }
-    });
-}
+//function listFiles(auth) {
+//    var service = google.drive('v3');
+//    service.files.list({
+//        auth: auth,
+//        pageSize: 10,
+//        fields: "nextPageToken, files(id, name)"
+//    }, function(err, response) {
+//        if (err) {
+//            console.log('The API returned an error: ' + err);
+//            return;
+//        }
+//        var files = response.files;
+//        if (files.length == 0) {
+//            console.log('No files found.');
+//        } else {
+//            console.log('Files:');
+//            for (var i = 0; i < files.length; i++) {
+//                var file = files[i];
+//                console.log('%s (%s)', file.name, file.id);
+//            }
+//        }
+//    })
+//}
